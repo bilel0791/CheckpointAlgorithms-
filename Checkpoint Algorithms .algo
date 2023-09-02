@@ -1,0 +1,47 @@
+ALGORITHM chekPointAgorithme
+VAR
+//phrase a tester 
+    sentence : STRING;
+    //variable pour  la longuer de phrase 
+    lenght_Of_Sentence : INTEGER:=0 ;
+    // conteur pour determiner le nombre de mots 
+    nbWord : INTEGER:=0 ;
+    //conteur pour les voyelle en anglais(A,E,I,O,U,Y,a,e,i,o,u,y)
+    nbvowels: INTEGER:=0 ;
+    //conteur pour determiner la longuer de phrase et pour indiquer le numero de caractere 
+    i:INTEGER :=1; 
+    // pour simplifier et savoir le numero de caractere a comparer  exp : char_num[1] pour dire  la premiere caractere 
+    char_num :CHAR;
+    
+
+BEGIN
+    //lire la phrase 
+    Read(sentence)
+ 
+REPEAT
+     //  on a initialiser i a 1 donc char_num[1] est  la premiere caractere 
+    Read(char_num[i])
+   // condition pour determiner les voyelles on anglais 
+    if (char_num[i]=" A" OR char_num[i]="E" OR char_num[i]="I"OR char_num[i]="O" OR char_num[i]="U" OR char_num[i]="Y"
+     OR char_num[i]=" a" OR char_num[i]="e" OR char_num[i]="i" OR char_num[i]="o" OR char_num[i]="u"OR char_num[i]="y") THEN {
+        //incrementation de conteur du voyelles
+              nbvowels := nbvowels+1;
+     }
+     //condition pour determiner les mots
+      if (char_num[i]=" ") THEN {
+        //incrementation de conteur du mots
+            nbWord := nbWord+1;
+      }
+      //incrementation de conteur pour passer ou characteur suivant et a la fin i soit la longueur de phrase 
+       i:=i+1;
+       // on s'arrete si la caractere et point "."
+       
+UNTIL (char_num[i]=".")
+
+lenght_Of_Sentence := i;
+write("the lenght of the sentence is ",lenght_Of_Sentence )
+write("The number of vowel is ",nbvowels);
+write("The number of word is " , nbWord);
+
+END
+
